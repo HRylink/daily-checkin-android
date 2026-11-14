@@ -1,0 +1,14 @@
+build/
+verification/
+debug.keystore
+*.keystore
+*.jks
+*.pem
+*.key
+*.apk.idsig
+docs/reference-*.mjs
+docs/plans/
+tests/desktop_logout_test.py
+.env
+.env.*
+__pycache__/
