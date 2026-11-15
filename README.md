@@ -1,6 +1,7 @@
 # 每日签到（Android · 中转站通用版）
 
 我做了这个 Android 签到工具，方便在手机上添加和管理多个网站的签到任务，适合领取积分、额度或类似每日权益的中转站。当前**显示版本 1.0**，`versionCode` 为 **11**；支持 Android 8.0（API 26）及以上，目标 API 34。手机独立运行，不需要 Termux、Python，也不需要复制电脑端 Cookie。
+
 <img src="docs/index.jpg" width ="300" alt="首页界面"  >
 <img src="docs/setting.jpg" width ="300" alt="首页界面"  >
 
