@@ -1,24 +1,22 @@
 # 每日签到（Android · 中转站通用版）
 
-我做了这个 Android 签到工具，方便在手机上添加和管理多个网站的签到任务，适合领取积分、额度或类似每日权益的中转站。当前**显示版本 1.0**，`versionCode` 为 **11**；支持 Android 8.0（API 26）及以上，目标 API 34。手机独立运行，不需要 Termux、Python，也不需要复制电脑端 Cookie。
+我做了这个 Android 签到工具，方便在手机上添加和管理多个网站的签到任务，适合领取积分、额度或类似每日权益的中转站。当前**版本 1.0**；支持 Android 8.0（API 26）及以上，目标 API 34。手机独立运行，不需要 Termux、Python，也不需要复制电脑端 Cookie。
 
 <img src="docs/index.jpg" width ="300" alt="首页界面"  >
 <img src="docs/setting.jpg" width ="300" alt="首页界面"  >
 
-公开发布包只上传手机端 APK、源码和说明；电脑端程序、构建产物、验证日志和签名密钥不随公开包发布。公开发布后也可在 GitHub Releases 的 v1.0 附件下载同一 APK。
+GitHub Releases 的 v1.0 附件下载同一 APK。
 
 ## 下载与安装
 
 - 仓库：[HRylink/daily-checkin-android](https://github.com/HRylink/daily-checkin-android)
-- 下载：[签到.apk](./签到.apk)；发布后也可从 [Releases](https://github.com/HRylink/daily-checkin-android/releases) 获取。建议核对 `SHA256SUMS.txt`。
-- 软件设置页最底部「GitHub 仓库 · 查看源码」可打开上述仓库。
+- 下载：[签到.apk](./签到.apk)；发布后也可从 [Releases](https://github.com/HRylink/daily-checkin-android/releases) 获取。
 - 将 APK 传到手机后点击安装；按系统提示允许所用文件管理器或浏览器「安装未知应用」。
 - **升级请直接覆盖安装，不要先卸载。**官方 APK 与旧版保持同包名、同签名；直接覆盖可保留已保存的账号、加密凭据和领取记录。
 - 自己从源码首次构建会生成新的 `debug.keystore`，签名与官方 APK 不同，不能覆盖安装官方包。强行切换签名需要卸载，而卸载会清除本应用的私有数据，详见 [docs/BUILDING.md](docs/BUILDING.md)。
 - 禁止应用备份；卸载或「清除应用数据」会删除本机账号、登录态与记录。
 
 ## 功能
-![Uploading IMG_20261114_225149.jpg…]()
 
 
 - 首页点一次圆形「每日签到」按钮，为已添加且开关已启用的网站执行签到或领取；运行中可切到其他应用，但请勿强制停止本应用。
@@ -55,7 +53,7 @@
 ## 我的测试情况
 
 - 已测：`./test.sh` 包含 12 个手机端套件——网络协议、通用站点、余额、登录、可靠性、运行流程、历史的 JVM/本地 HTTP 夹具测试，以及 Android 静态接线、UI 静态契约。它们覆盖协议状态、令牌刷新、POST 防重放、余额只读汇总、缓存、加密键路径、历史积分迁移和静态源码接线。
-- 已测：本次 APK 完成 Java 8/Android 34 编译、4 字节对齐与 v2/v3 签名校验；新增设置页仓库链接不改变签到协议。显示版本仍为 1.0，内部版本码递增为 11。
+- 已测：本次 APK 完成 Java 8/Android 34 编译、4 字节对齐与 v2/v3 签名校验；新增设置页仓库链接不改变签到协议。
 - 真机测试：我已经将 APK 安装到手机，并连接多个网站成功完成签到领取。它在我测试过的网站上可用，但我不保证所有中转站都兼容。
 - 尚未全面覆盖：我还没有逐一验证所有机型的前后台切换、通知权限生命周期、SSO、代理配置和跨版本数据保留；本次新增的仓库链接入口也需要随更新包在手机上进一步核对。
 - 自定义 GET 的「一次重试」是应用层预算；`HttpURLConnection` 在服务器完全无响应时可能透明重发 GET，不能保证各平台底层请求总数恰好为两次。POST 在本地夹具中验证断连、无响应、超时均只发送一次。
